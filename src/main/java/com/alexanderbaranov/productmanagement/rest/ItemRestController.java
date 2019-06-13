@@ -25,9 +25,9 @@ public class ItemRestController {
 
     @PostMapping()
     public Item itemInsert(@RequestBody Item item) {
-       Item currentItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getDescrip(), item.getType());
-        itemRepository.save(currentItem);
-        return currentItem;
+      // Item currentItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getDescrip(), item.getType());
+        itemRepository.save(item);
+        return item;
     }
 
     @GetMapping()
