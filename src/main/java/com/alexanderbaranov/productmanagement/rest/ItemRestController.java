@@ -1,9 +1,9 @@
-package com.alexanderbaranov.restproj1.rest;
+package com.alexanderbaranov.productmanagement.rest;
 
-import com.alexanderbaranov.restproj1.exceptions.NotFoundException;
-import com.alexanderbaranov.restproj1.model.Item;
-import com.alexanderbaranov.restproj1.repository.ItemRepository;
-import com.alexanderbaranov.restproj1.repository.ItemRepositoryImpl;
+import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
+import com.alexanderbaranov.productmanagement.model.Item;
+import com.alexanderbaranov.productmanagement.repository.ItemRepository;
+import com.alexanderbaranov.productmanagement.repository.ItemRepositoryImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

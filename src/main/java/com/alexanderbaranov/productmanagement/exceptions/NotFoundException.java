@@ -1,4 +1,4 @@
-package com.alexanderbaranov.restproj1.exceptions;
+package com.alexanderbaranov.productmanagement.exceptions;
 
 
 import org.springframework.http.HttpStatus;

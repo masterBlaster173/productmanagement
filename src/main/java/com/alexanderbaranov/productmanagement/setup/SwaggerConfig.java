@@ -1,4 +1,4 @@
-package com.alexanderbaranov.restproj1.setup;
+package com.alexanderbaranov.productmanagement.setup;
 
 
 import org.springframework.context.annotation.Bean;

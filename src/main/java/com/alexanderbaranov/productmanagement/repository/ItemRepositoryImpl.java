@@ -1,6 +1,6 @@
-package com.alexanderbaranov.restproj1.repository;
+package com.alexanderbaranov.productmanagement.repository;
 
-import com.alexanderbaranov.restproj1.model.Item;
+import com.alexanderbaranov.productmanagement.model.Item;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashMap;

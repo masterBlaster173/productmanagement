@@ -1,4 +1,4 @@
-package com.alexanderbaranov.restproj1.model;
+package com.alexanderbaranov.productmanagement.model;
 
 import java.io.Serializable;
 

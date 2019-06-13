@@ -1,6 +1,6 @@
 
 
-group 'com.alexanderbaranov.restproj1'
+group 'com.alexanderbaranov.productmanagement'
 version '1.0-SNAPSHOT'
 
 buildscript {
