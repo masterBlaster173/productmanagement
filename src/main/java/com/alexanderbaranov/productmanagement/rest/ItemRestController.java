@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/item")
 public class ItemRestController {
-    private ItemRepository itemRepository;
+    private final ItemRepository itemRepository;
 
     public ItemRestController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
