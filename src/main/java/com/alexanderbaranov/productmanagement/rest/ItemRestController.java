@@ -13,7 +13,7 @@ import java.util.List;
 public class ItemRestController {
     private ItemRepository itemRepository;
 
-    public ItemRestController(ItemRepositoryImpl itemRepository) {
+    public ItemRestController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
 
