@@ -48,6 +48,16 @@ public class ItemRestController {
 
     @GetMapping("type/{type}")
     public List<Item> getItemByType (@PathVariable String type) {
+        List <Item> currentItem = itemService.findByType(type);
+        if (currentItem.size() == 0) {
+            throw new NotFoundException();
+        }
+        return currentItem;
+    }
+        // for items without type
+    @GetMapping("type")
+    public List<Item> getItemByNullType (String type) {
+        type = "";
         return itemService.findByType(type);
     }
 
