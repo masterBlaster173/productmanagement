@@ -4,6 +4,7 @@ import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.ItemRepository;
 import com.alexanderbaranov.productmanagement.repository.ItemRepositoryImpl;
+import com.alexanderbaranov.productmanagement.service.ItemService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,10 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/item")
 public class ItemRestController {
-    private final ItemRepository itemRepository;
+    private final ItemService itemService;
 
-    public ItemRestController(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
+    public ItemRestController(ItemService itemService) {
+        this.itemService = itemService;
     }
 
     /*Browser console request exapmle: fetch( '/item/', {
@@ -26,19 +27,19 @@ public class ItemRestController {
     @PostMapping()
     public Item itemInsert(@RequestBody Item item) {
       // Item currentItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getDescrip(), item.getType());
-        itemRepository.save(item);
+        itemService.save(item);
         return item;
     }
 
     @GetMapping()
         public List<Item> list() {
-        return itemRepository.findAll();
+        return itemService.findAll();
     }
 
     @GetMapping("id/{id}")
 
     public Item getItemByID (@PathVariable Long id) {
-        Item currentItem = itemRepository.findById(id);
+        Item currentItem = itemService.findById(id);
          if (currentItem == null) {
              throw new NotFoundException();
                  }
@@ -47,13 +48,13 @@ public class ItemRestController {
 
     @GetMapping("type/{type}")
     public List<Item> getItemByType (@PathVariable String type) {
-        return itemRepository.findByType(type);
+        return itemService.findByType(type);
     }
 
     @PutMapping("/{id}")
     public Item updateById (@PathVariable Long id, @RequestBody Item item) {
         Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescrip(), item.getType());
-         itemRepository.update(currentItem);
+        itemService.update(currentItem);
          return currentItem;
     }
 
@@ -64,7 +65,7 @@ public class ItemRestController {
 
     @DeleteMapping("/{id}")
     public void delItemByID (@PathVariable Long id) {
-        itemRepository.deleteById(id);
+        itemService.deleteById(id);
     }
 }
 
