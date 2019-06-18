@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
     private final AtomicLong counter = new AtomicLong(); // for automatic increment ID
-    private Map<Long, Item> mapOfItems = new HashMap<>();
+    private final Map<Long, Item> mapOfItems = new HashMap<>();
 
     @Override
     public List<Item> findAll () {
