@@ -53,7 +53,7 @@ public class ItemRestController {
 
     @PutMapping("/{id}")
     public Item updateById (@PathVariable Long id, @RequestBody Item item) {
-        Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescrip(), item.getType());
+        Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescription(), item.getType());
         itemService.update(currentItem);
          return currentItem;
     }
