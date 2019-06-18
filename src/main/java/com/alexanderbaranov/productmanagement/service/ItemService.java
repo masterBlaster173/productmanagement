@@ -1,7 +1,6 @@
 package com.alexanderbaranov.productmanagement.service;
 
 import com.alexanderbaranov.productmanagement.model.Item;
-
 import java.util.List;
 
 public interface ItemService {
