@@ -53,7 +53,6 @@ public class ItemRepositoryImpl implements ItemRepository {
     public void save (Item item) {
         item.setId(counter.incrementAndGet());
         mapOfItems.put(item.getId(), item);
-
     }
 
     @Override

@@ -34,7 +34,6 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.deleteById(id);
 
     }
-
     @Override
     public List<Item> findByType(String type) {
         return itemRepository.findByType(type);
