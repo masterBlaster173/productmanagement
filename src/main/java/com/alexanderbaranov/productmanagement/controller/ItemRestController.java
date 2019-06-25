@@ -1,9 +1,7 @@
-package com.alexanderbaranov.productmanagement.rest;
+package com.alexanderbaranov.productmanagement.controller;
 
 import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
 import com.alexanderbaranov.productmanagement.model.Item;
-import com.alexanderbaranov.productmanagement.repository.ItemRepository;
-import com.alexanderbaranov.productmanagement.repository.ItemRepositoryImpl;
 import com.alexanderbaranov.productmanagement.service.ItemService;
 import org.springframework.web.bind.annotation.*;
 
