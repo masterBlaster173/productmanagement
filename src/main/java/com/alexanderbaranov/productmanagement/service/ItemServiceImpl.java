@@ -1,7 +1,7 @@
 package com.alexanderbaranov.productmanagement.service;
 
 import com.alexanderbaranov.productmanagement.model.Item;
-import com.alexanderbaranov.productmanagement.repository.ItemRepository;
+import com.alexanderbaranov.productmanagement.repository.map.ItemRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

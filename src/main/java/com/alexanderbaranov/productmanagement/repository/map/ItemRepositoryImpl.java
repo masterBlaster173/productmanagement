@@ -1,12 +1,10 @@
-package com.alexanderbaranov.productmanagement.repository;
+package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
+import com.alexanderbaranov.productmanagement.repository.map.ItemRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
@@ -40,19 +38,25 @@ public class ItemRepositoryImpl implements ItemRepository {
     @Override
     public List<Item> findByType (String type) {
         List<Item> itemList = new ArrayList<>();
-
-        for (Map.Entry<Long, Item> entry : mapOfItems.entrySet()) {
-            if (type.equals(entry.getValue().getType())) {
-                itemList.add(entry.getValue());
+            if (type != null) {
+                for (Map.Entry<Long, Item> entry : mapOfItems.entrySet()) {
+                    if (type.equals(entry.getValue().getType())) {
+                        itemList.add(entry.getValue());
+                    }
+                }
+                return itemList;
             }
-        }
-        return itemList;
+            else return Collections.emptyList();
     }
 
     @Override
     public void save (Item item) {
-        item.setId(counter.incrementAndGet());
-        mapOfItems.put(item.getId(), item);
+        if ((item!=null)) {
+            item.setId(counter.incrementAndGet());
+            if ((item.getType() != null)) {
+                mapOfItems.put(item.getId(), item);
+            }
+        }
     }
 
     @Override
@@ -62,8 +66,11 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public Item update(Item item) {
-      //  mapOfItems.remove(item.getId());
-        mapOfItems.put(item.getId(), item);
-        return item;
+        if ((item!=null)) {
+            if ((item.getType() != null)) {
+                mapOfItems.put(item.getId(), item);
+            }
+        }
+            return item;
     }
 }
