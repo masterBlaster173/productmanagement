@@ -2,8 +2,6 @@ package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.AbstractItemRepositoryImplTest;
-import com.alexanderbaranov.productmanagement.repository.map.ItemRepository;
-import com.alexanderbaranov.productmanagement.repository.map.ItemRepositoryImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +31,7 @@ public class ItemRepositoryImplTest extends AbstractItemRepositoryImplTest {
         rep.save(item);
         List<Item> result = rep.findByType(null);
         Assert.assertEquals(0, result.size());
+
     }
 
     @Test
