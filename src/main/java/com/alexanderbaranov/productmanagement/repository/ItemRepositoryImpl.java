@@ -1,17 +1,18 @@
-package com.alexanderbaranov.restproj1.repository;
+package com.alexanderbaranov.productmanagement.repository;
 
-import com.alexanderbaranov.restproj1.model.Item;
-import org.springframework.stereotype.Component;
+import com.alexanderbaranov.productmanagement.model.Item;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Component
+@Repository
 public class ItemRepositoryImpl implements ItemRepository {
     private final AtomicLong counter = new AtomicLong(); // for automatic increment ID
-    private Map<Long, Item> mapOfItems = new HashMap<>();
+    private final Map<Long, Item> mapOfItems = new HashMap<>();
 
     @Override
     public List<Item> findAll () {

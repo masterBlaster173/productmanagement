@@ -1,6 +1,6 @@
-package com.alexanderbaranov.restproj1.repository;
+package com.alexanderbaranov.productmanagement.repository;
 
-import com.alexanderbaranov.restproj1.model.Item;
+import com.alexanderbaranov.productmanagement.model.Item;
 import java.util.List;
 
 public interface ItemRepository {

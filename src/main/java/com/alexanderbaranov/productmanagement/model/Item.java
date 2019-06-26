@@ -1,4 +1,4 @@
-package com.alexanderbaranov.restproj1.model;
+package com.alexanderbaranov.productmanagement.model;
 
 import java.io.Serializable;
 
@@ -7,17 +7,17 @@ public class Item implements Serializable {
     private Long id;
     private String name;
     private Double price;
-    private String descrip;
+    private String description;
     private String type;
 
     public Item() {
     }
 
-    public Item(Long id, String name, Double price, String descrip, String type) {
+    public Item(Long id, String name, Double price, String description, String type) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.descrip = descrip;
+        this.description = description;
         this.type = type;
     }
 
@@ -45,12 +45,12 @@ public class Item implements Serializable {
         this.price = price;
     }
 
-    public String getDescrip() {
-        return descrip;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrip(String descrip) {
-        this.descrip = descrip;
+    public void setDescription(String descrip) {
+        this.description = descrip;
     }
 
     public String getType() {
