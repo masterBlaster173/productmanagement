@@ -1,14 +1,14 @@
 package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
-import com.alexanderbaranov.productmanagement.repository.AbstractItemRepositoryImplTest;
+import com.alexanderbaranov.productmanagement.repository.AbstractRepositoryTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-public class ItemRepositoryImplTest extends AbstractItemRepositoryImplTest {
+public class ItemRepositoryImplTest extends AbstractRepositoryTest {
     ItemRepository rep;
 
     @Before

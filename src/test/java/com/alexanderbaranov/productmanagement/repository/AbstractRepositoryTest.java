@@ -9,6 +9,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-public abstract class AbstractItemRepositoryImplTest {
+public abstract class AbstractRepositoryTest {
 
 }
