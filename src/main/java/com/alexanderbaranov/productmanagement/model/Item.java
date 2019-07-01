@@ -49,8 +49,8 @@ public class Item implements Serializable {
         return description;
     }
 
-    public void setDescription(String descrip) {
-        this.description = descrip;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getType() {

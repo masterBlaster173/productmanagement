@@ -1,4 +1,4 @@
-package com.alexanderbaranov.productmanagement.repository;
+package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 import java.util.List;
