@@ -47,7 +47,6 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
         Item item =null;
         rep.save(item);
         List<Item> result = rep.findAll();
-        //Assert.assertFalse(result.contains(null));
         Assert.assertTrue(result.isEmpty());
     }
 }

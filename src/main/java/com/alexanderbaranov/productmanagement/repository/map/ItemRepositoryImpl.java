@@ -1,7 +1,6 @@
 package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
-import com.alexanderbaranov.productmanagement.repository.map.ItemRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -9,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
-    private final AtomicLong counter = new AtomicLong(); // for automatic increment ID
+    private final AtomicLong counter = new AtomicLong();
     private final Map<Long, Item> mapOfItems = new HashMap<>();
 
     @Override

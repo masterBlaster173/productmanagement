@@ -16,15 +16,8 @@ public class ItemRestController {
         this.itemService = itemService;
     }
 
-    /*Browser console request exapmle: fetch( '/item/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: 'name', price: '20.0', descrip: 'descrip', type: 'type' })
-          })*/
-
     @PostMapping()
     public Item itemInsert(@RequestBody Item item) {
-      // Item currentItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getDescrip(), item.getType());
         itemService.save(item);
         return item;
     }
@@ -52,7 +45,7 @@ public class ItemRestController {
         }
         return currentItem;
     }
-        // for items without type
+
     @GetMapping("type")
     public List<Item> getItemByNullType (String type) {
         type = "";
@@ -65,11 +58,6 @@ public class ItemRestController {
         itemService.update(currentItem);
          return currentItem;
     }
-
-/*Browser console request example: fetch( '/item/1', {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-          })*/
 
     @DeleteMapping("/{id}")
     public void delItemByID (@PathVariable Long id) {
