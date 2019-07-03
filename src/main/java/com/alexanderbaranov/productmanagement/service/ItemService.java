@@ -10,12 +10,12 @@ public interface ItemService {
 
     ItemDto findById(Long id);
 
-    Item update(Item item);
+    ItemDto update(ItemDto itemDto, Long id);
 
     void deleteById(Long id);
 
     List<ItemDto> findByType(String type);
 
-    void save(Item item);
+    ItemDto save(ItemDto itemDto);
 
 }

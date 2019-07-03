@@ -16,5 +16,5 @@ public interface ItemRepository {
 
     List<Item> findByType(String type);
 
-    void save(Item item);
+    Item save(Item item);
 }

@@ -18,9 +18,8 @@ public class ItemRestController {
     }
 
     @PostMapping()
-    public Item itemInsert(@RequestBody Item item) {
-        itemService.save(item);
-        return item;
+    public ItemDto itemInsert(@RequestBody ItemDto itemDto) {
+        return itemService.save(itemDto);
     }
 
     @GetMapping()
@@ -54,10 +53,8 @@ public class ItemRestController {
     }
 
     @PutMapping("/{id}")
-    public Item updateById(@PathVariable Long id, @RequestBody Item item) {
-        Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescription(), item.getType());
-        itemService.update(currentItem);
-        return currentItem;
+    public ItemDto updateById(@PathVariable Long id, @RequestBody ItemDto itemDto) {
+        return itemService.update(itemDto, id);
     }
 
     @DeleteMapping("/{id}")

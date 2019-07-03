@@ -31,8 +31,10 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item update(Item item) {
-        return itemRepository.update(item);
+    public ItemDto update(ItemDto itemDto, Long id) {
+        Item currentItem = new Item(id-1, itemDto.getName(), itemDto.getPrice(), itemDto.getDescription(), itemDto.getDescription());
+        mapper.toItem(currentItem, itemDto);
+        return mapper.toItemDto(itemRepository.update(currentItem));
     }
 
     @Override
@@ -47,8 +49,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void save(Item item) {
-        itemRepository.save(item);
+    public ItemDto save(ItemDto itemDto) {
+        return mapper.toItemDto(itemRepository.save(mapper.toItem(itemDto)));
 
     }
 }
