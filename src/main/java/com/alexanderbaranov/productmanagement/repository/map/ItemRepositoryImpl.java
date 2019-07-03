@@ -52,7 +52,7 @@ public class ItemRepositoryImpl implements ItemRepository {
     public Item save(Item item) {
         Long currentId = counter.incrementAndGet();
         Item currentItem = null;
-        if ((item != null) ) {
+        if ((item != null)) {
             item.setId(currentId);
             if ((item.getType() != null)) {
                 mapOfItems.put(item.getId(), item);
@@ -73,13 +73,19 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public Item update(Item item) {
-
+        Item currentItem = null;
+        Long currentId = item.getId();
         if ((item != null)) {
             if ((item.getType() != null)) {
                 mapOfItems.put(item.getId(), item);
             }
         }
 
-        return item;
+        for (Map.Entry<Long, Item> entry : mapOfItems.entrySet()) {
+            if (currentId == entry.getKey()) {
+                currentItem = entry.getValue();
+            }
+        }
+        return currentItem;
     }
 }
