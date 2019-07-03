@@ -23,23 +23,23 @@ public class ItemRestController {
     }
 
     @GetMapping()
-        public List<Item> list() {
+    public List<Item> list() {
         return itemService.findAll();
     }
 
     @GetMapping("id/{id}")
 
-    public Item getItemByID (@PathVariable Long id) {
+    public Item getItemByID(@PathVariable Long id) {
         Item currentItem = itemService.findById(id);
-         if (currentItem == null) {
-             throw new NotFoundException();
-                 }
+        if (currentItem == null) {
+            throw new NotFoundException();
+        }
         return currentItem;
     }
 
     @GetMapping("type/{type}")
-    public List<Item> getItemByType (@PathVariable String type) {
-        List <Item> currentItem = itemService.findByType(type);
+    public List<Item> getItemByType(@PathVariable String type) {
+        List<Item> currentItem = itemService.findByType(type);
         if (currentItem.size() == 0) {
             throw new NotFoundException();
         }
@@ -47,20 +47,20 @@ public class ItemRestController {
     }
 
     @GetMapping("type")
-    public List<Item> getItemByNullType (String type) {
+    public List<Item> getItemByNullType(String type) {
         type = "";
         return itemService.findByType(type);
     }
 
     @PutMapping("/{id}")
-    public Item updateById (@PathVariable Long id, @RequestBody Item item) {
+    public Item updateById(@PathVariable Long id, @RequestBody Item item) {
         Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescription(), item.getType());
         itemService.update(currentItem);
-         return currentItem;
+        return currentItem;
     }
 
     @DeleteMapping("/{id}")
-    public void delItemByID (@PathVariable Long id) {
+    public void delItemByID(@PathVariable Long id) {
         itemService.deleteById(id);
     }
 }

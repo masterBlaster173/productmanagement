@@ -3,12 +3,13 @@ package com.alexanderbaranov.productmanagement.service;
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.map.ItemRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 public class ItemServiceImpl implements ItemService {
 
-   private final ItemRepository itemRepository;
+    private final ItemRepository itemRepository;
 
     public ItemServiceImpl(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
@@ -34,6 +35,7 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.deleteById(id);
 
     }
+
     @Override
     public List<Item> findByType(String type) {
         return itemRepository.findByType(type);
