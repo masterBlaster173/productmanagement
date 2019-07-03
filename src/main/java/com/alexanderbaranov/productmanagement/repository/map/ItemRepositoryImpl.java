@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
+
     private final AtomicLong counter = new AtomicLong();
     private final Map<Long, Item> mapOfItems = new HashMap<>();
 
