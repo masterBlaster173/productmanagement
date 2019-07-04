@@ -2,6 +2,7 @@ package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.AbstractRepositoryTest;
+import com.alexanderbaranov.productmanagement.repository.ItemRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +14,7 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
 
     @Before
     public void setUp() throws Exception {
-        rep = new ItemRepositoryImpl();
+        rep = new ItemRepositoryMapImpl();
     }
 
     @Test

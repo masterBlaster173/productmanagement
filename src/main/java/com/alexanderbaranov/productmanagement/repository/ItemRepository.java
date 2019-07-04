@@ -1,4 +1,4 @@
-package com.alexanderbaranov.productmanagement.repository.map;
+package com.alexanderbaranov.productmanagement.repository;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 
