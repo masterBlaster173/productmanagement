@@ -47,9 +47,8 @@ public class ItemRestController {
     }
 
     @GetMapping("type")
-    public List<ItemDto> getItemByNullType(String type) {
-        type = "";
-        return itemService.findByType(type);
+    public List<ItemDto> getItemByNullType() {
+        return itemService.findByType("");
     }
 
     @PutMapping("/{id}")
