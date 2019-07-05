@@ -2,6 +2,7 @@ package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.AbstractRepositoryTest;
+import com.alexanderbaranov.productmanagement.repository.ItemRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +13,13 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
     ItemRepository rep;
 
     @Before
-        public void setUp() throws Exception {
-            rep = new ItemRepositoryImpl();
+    public void setUp() throws Exception {
+        rep = new ItemRepositoryMapImpl();
     }
+
     @Test
     public void testFindByEmptyType() {
-        Item item = new Item(1L,"name",10D, "descr", "");
+        Item item = new Item(1L, "name", 10D, "descr", "");
         rep.save(item);
         List<Item> result = rep.findByType("");
         Assert.assertNotNull(result);
@@ -27,7 +29,7 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
 
     @Test
     public void testFindByNullType() {
-        Item item = new Item(1L,"name",10D, "descr", "");
+        Item item = new Item(1L, "name", 10D, "descr", "");
         rep.save(item);
         List<Item> result = rep.findByType(null);
         Assert.assertEquals(0, result.size());
@@ -36,7 +38,7 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
 
     @Test
     public void testFindItemWithNullTypeByNotNullType() {
-        Item item = new Item(1L,"name",10D, "descr", null);
+        Item item = new Item(1L, "name", 10D, "descr", null);
         rep.save(item);
         List<Item> result = rep.findByType("type");
         Assert.assertEquals(0, result.size());
@@ -44,10 +46,9 @@ public class ItemRepositoryImplTest extends AbstractRepositoryTest {
 
     @Test
     public void testFindNullItem() {
-        Item item =null;
+        Item item = null;
         rep.save(item);
         List<Item> result = rep.findAll();
-        //Assert.assertFalse(result.contains(null));
         Assert.assertTrue(result.isEmpty());
     }
 }

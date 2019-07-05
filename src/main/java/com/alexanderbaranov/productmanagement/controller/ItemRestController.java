@@ -3,6 +3,7 @@ package com.alexanderbaranov.productmanagement.controller;
 import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.service.ItemService;
+import com.alexanderbaranov.productmanagement.service.response.ItemDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,63 +17,47 @@ public class ItemRestController {
         this.itemService = itemService;
     }
 
-    /*Browser console request exapmle: fetch( '/item/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: 'name', price: '20.0', descrip: 'descrip', type: 'type' })
-          })*/
-
     @PostMapping()
-    public Item itemInsert(@RequestBody Item item) {
-      // Item currentItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getDescrip(), item.getType());
-        itemService.save(item);
-        return item;
+    public ItemDto itemInsert(@RequestBody ItemDto itemDto) {
+        return itemService.save(itemDto);
     }
 
     @GetMapping()
-        public List<Item> list() {
+    public List<ItemDto> list() {
         return itemService.findAll();
     }
 
     @GetMapping("id/{id}")
 
-    public Item getItemByID (@PathVariable Long id) {
-        Item currentItem = itemService.findById(id);
-         if (currentItem == null) {
-             throw new NotFoundException();
-                 }
+    public ItemDto getItemByID(@PathVariable Long id) {
+        ItemDto currentItem = itemService.findById(id);
+        if (currentItem == null) {
+            throw new NotFoundException();
+        }
         return currentItem;
     }
 
     @GetMapping("type/{type}")
-    public List<Item> getItemByType (@PathVariable String type) {
-        List <Item> currentItem = itemService.findByType(type);
+    public List<ItemDto> getItemByType(@PathVariable String type) {
+        List<ItemDto> currentItem = itemService.findByType(type);
         if (currentItem.size() == 0) {
             throw new NotFoundException();
         }
         return currentItem;
     }
-        // for items without type
+
     @GetMapping("type")
-    public List<Item> getItemByNullType (String type) {
-        type = "";
-        return itemService.findByType(type);
+    public List<ItemDto> getItemByNullType() {
+        return itemService.findByType("");
     }
 
     @PutMapping("/{id}")
-    public Item updateById (@PathVariable Long id, @RequestBody Item item) {
-        Item currentItem = new Item(id, item.getName(), item.getPrice(), item.getDescription(), item.getType());
-        itemService.update(currentItem);
-         return currentItem;
+    public ItemDto updateById(@PathVariable Long id, @RequestBody ItemDto itemDto) {
+        return itemService.update(itemDto, id);
     }
 
-/*Browser console request example: fetch( '/item/1', {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-          })*/
-
     @DeleteMapping("/{id}")
-    public void delItemByID (@PathVariable Long id) {
+    public void delItemByID(@PathVariable Long id) {
         itemService.deleteById(id);
     }
 }
