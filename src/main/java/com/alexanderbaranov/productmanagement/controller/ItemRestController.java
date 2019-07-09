@@ -1,7 +1,6 @@
 package com.alexanderbaranov.productmanagement.controller;
 
-import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
-import com.alexanderbaranov.productmanagement.model.Item;
+import com.alexanderbaranov.productmanagement.exception.NotFoundException;
 import com.alexanderbaranov.productmanagement.service.ItemService;
 import com.alexanderbaranov.productmanagement.service.response.ItemDto;
 import org.springframework.web.bind.annotation.*;
