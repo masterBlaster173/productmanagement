@@ -31,7 +31,7 @@ public class ItemRestController {
     public ItemDto getItemByID(@PathVariable Long id) {
         ItemDto currentItem = itemService.findById(id);
         if (currentItem == null) {
-            throw new NotFoundException();
+            throw new NotFoundException("Item for ID="+id+" are not found");
         }
         return currentItem;
     }
@@ -40,7 +40,7 @@ public class ItemRestController {
     public List<ItemDto> getItemByType(@PathVariable String type) {
         List<ItemDto> currentItem = itemService.findByType(type);
         if (currentItem.size() == 0) {
-            throw new NotFoundException();
+            throw new NotFoundException("Item for this type="+type+" are not found");
         }
         return currentItem;
     }
