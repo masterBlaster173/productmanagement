@@ -1,7 +1,6 @@
 package com.alexanderbaranov.productmanagement.controller;
 
-import com.alexanderbaranov.productmanagement.exceptions.NotFoundException;
-import com.alexanderbaranov.productmanagement.model.Item;
+import com.alexanderbaranov.productmanagement.exception.NotFoundException;
 import com.alexanderbaranov.productmanagement.service.ItemService;
 import com.alexanderbaranov.productmanagement.service.response.ItemDto;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +31,7 @@ public class ItemRestController {
     public ItemDto getItemByID(@PathVariable Long id) {
         ItemDto currentItem = itemService.findById(id);
         if (currentItem == null) {
-            throw new NotFoundException();
+            throw new NotFoundException("Item for ID="+id+" are not found");
         }
         return currentItem;
     }
@@ -41,7 +40,7 @@ public class ItemRestController {
     public List<ItemDto> getItemByType(@PathVariable String type) {
         List<ItemDto> currentItem = itemService.findByType(type);
         if (currentItem.size() == 0) {
-            throw new NotFoundException();
+            throw new NotFoundException("Item for this type="+type+" are not found");
         }
         return currentItem;
     }
