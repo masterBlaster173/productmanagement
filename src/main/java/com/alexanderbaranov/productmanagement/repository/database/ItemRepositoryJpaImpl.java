@@ -31,26 +31,28 @@ public class ItemRepositoryJpaImpl implements ItemRepository {
         return crudItemRepository.getOne(id);
     }
 
+    @Transactional
     @Override
     public List<Item> findByType(String type) {
         return crudItemRepository.findByType(type);
     }
 
+    @Transactional
     @Override
     public Item save(Item item) {
         return crudItemRepository.save(item);
     }
 
+    @Transactional
     @Override
     public void deleteById(Long id) {
         crudItemRepository.deleteById(id);
 
     }
 
-
+    @Transactional
     @Override
     public Item update(Item item) {
-        crudItemRepository.deleteById(item.getId());
         return crudItemRepository.save(item);
     }
 }

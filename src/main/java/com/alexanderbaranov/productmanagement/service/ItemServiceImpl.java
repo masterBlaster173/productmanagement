@@ -32,23 +32,27 @@ public class ItemServiceImpl implements ItemService {
         return mapper.toItemDto(itemRepository.findById(id));
     }
 
+    @Transactional
     @Override
     public ItemDto update(ItemDto itemDto, Long id) {
         Item currentItem = new Item(id, itemDto.getName(), itemDto.getPrice(), itemDto.getDescription(), itemDto.getDescription());
         return mapper.toItemDto(itemRepository.update(currentItem));
     }
 
+    @Transactional
     @Override
     public void deleteById(Long id) {
         itemRepository.deleteById(id);
 
     }
 
+    @Transactional
     @Override
     public List<ItemDto> findByType(String type) {
         return mapper.toItemDto(itemRepository.findByType(type));
     }
 
+    @Transactional
     @Override
     public ItemDto save(ItemDto itemDto) {
         return mapper.toItemDto(itemRepository.save(mapper.toItem(itemDto)));
