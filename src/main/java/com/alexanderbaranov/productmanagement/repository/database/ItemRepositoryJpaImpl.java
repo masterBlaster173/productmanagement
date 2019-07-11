@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Profile("!jpa")
+@Profile("jpa")
 @Repository
 public class ItemRepositoryJpaImpl implements ItemRepository {
 
