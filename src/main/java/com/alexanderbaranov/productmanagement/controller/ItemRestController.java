@@ -3,6 +3,7 @@ package com.alexanderbaranov.productmanagement.controller;
 import com.alexanderbaranov.productmanagement.exception.NotFoundException;
 import com.alexanderbaranov.productmanagement.service.ItemService;
 import com.alexanderbaranov.productmanagement.service.response.ItemDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/item")
 public class ItemRestController {
+
     private final ItemService itemService;
 
     public ItemRestController(ItemService itemService) {

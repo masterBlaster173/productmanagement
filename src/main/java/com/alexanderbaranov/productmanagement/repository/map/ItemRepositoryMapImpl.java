@@ -2,11 +2,13 @@ package com.alexanderbaranov.productmanagement.repository.map;
 
 import com.alexanderbaranov.productmanagement.model.Item;
 import com.alexanderbaranov.productmanagement.repository.ItemRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Profile("map")
 @Repository
 public class ItemRepositoryMapImpl implements ItemRepository {
 

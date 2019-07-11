@@ -1,13 +1,26 @@
 package com.alexanderbaranov.productmanagement.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "products")
 public class Item implements Serializable {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "price", nullable = false)
     private Double price;
+
     private String description;
+
+    @Column(name = "type", nullable = false)
     private String type;
 
     public Item() {
